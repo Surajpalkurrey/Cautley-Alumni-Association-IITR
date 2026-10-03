@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bonsai · Tree Plantation · 2 October 2026 · Cautley Alumni, IIT Roorkee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #F7F9F4;
+      --ink: #1E2B22;
+      --muted: #56645A;
+      --leaf: #2F6B3C;
+      --bark: #6B4E36;
+      --line: #D7E0D3;
+      --card: #FFFFFF;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #141A16;
+        --ink: #E9EFE7;
+        --muted: #A6B3A9;
+        --leaf: #7CC28A;
+        --bark: #C9A27E;
+        --line: #2C3830;
+        --card: #1B231E;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; }
+    .wrap { max-width: 680px; margin: 0 auto; padding: 0 20px; }
+
+    /* ---------- Hero: tree photo ---------- */
+    .hero { position: relative; }
+    .hero-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      max-height: 78vh;
+      object-fit: cover;
+      background: var(--line);
+    }
+    .hero-text { padding: 28px 0 8px; }
+    .event {
+      color: var(--leaf);
+      font-weight: 600;
+      margin: 0 0 6px;
+    }
+    h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(2.4rem, 10vw, 3.6rem);
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+    .sci {
+      font-family: "Fraunces", Georgia, serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--muted);
+      margin: 6px 0 0;
+    }
+
+    /* ---------- Tree info ---------- */
+    .about { padding: 20px 0 8px; }
+    .about p { margin: 0 0 16px; }
+    .facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 8px 0 20px;
+    }
+    .facts div { background: var(--card); padding: 14px 16px; }
+    .facts dt { font-size: 0.85rem; color: var(--muted); }
+    .facts dd { margin: 2px 0 0; font-weight: 600; }
+    .wiki {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--leaf);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid currentColor;
+      padding-bottom: 1px;
+    }
+    .wiki:focus-visible, .gallery button:focus-visible, .close:focus-visible {
+      outline: 3px solid var(--leaf); outline-offset: 3px;
+    }
+
+    /* ---------- Plaque (the dedication) ---------- */
+    .plaque {
+      margin: 44px 0;
+      padding: 34px 26px;
+      text-align: center;
+      border: 2px solid var(--bark);
+      outline: 1px solid var(--bark);
+      outline-offset: 6px;
+      border-radius: 4px;
+      background: var(--card);
+    }
+    .plaque .leaf { font-size: 1.8rem; line-height: 1; }
+    .plaque h2 {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 500;
+      font-size: 1.5rem;
+      line-height: 1.3;
+      margin: 14px 0 12px;
+    }
+    .plaque p { margin: 0 0 6px; color: var(--muted); }
+    .plaque .guests { margin-top: 18px; color: var(--ink); }
+    .plaque .date {
+      margin-top: 18px;
+      font-family: "Fraunces", Georgia, serif;
+      font-style: italic;
+      color: var(--bark);
+    }
+
+    /* ---------- Gallery ---------- */
+    .gallery-head {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 500;
+      font-size: 1.6rem;
+      margin: 0 0 14px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    @media (min-width: 560px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+    .gallery button {
+      padding: 0; border: 0; background: var(--line);
+      border-radius: 8px; overflow: hidden; cursor: zoom-in;
+      aspect-ratio: 1;
+    }
+    .gallery img { width: 100%; height: 100%; object-fit: cover; }
+    .gallery figcaption { display: none; }
+
+    /* Shown when a photo file is missing, so you know what to upload */
+    .missing {
+      display: grid; place-items: center;
+      background: repeating-linear-gradient(45deg, var(--line) 0 10px, transparent 10px 20px);
+      color: var(--muted); font-size: 0.85rem; text-align: center; padding: 10px;
+    }
+
+    /* ---------- Lightbox ---------- */
+    dialog {
+      border: 0; padding: 0; background: transparent;
+      max-width: 96vw; max-height: 92vh;
+    }
+    dialog::backdrop { background: rgba(10, 15, 12, 0.9); }
+    dialog img { max-height: 82vh; width: auto; margin: 0 auto; border-radius: 6px; }
+    dialog p { color: #E9EFE7; text-align: center; margin: 10px 0 0; }
+    .close {
+      position: fixed; top: 14px; right: 14px;
+      background: #fff; color: #1E2B22; border: 0; border-radius: 999px;
+      width: 44px; height: 44px; font-size: 1.4rem; cursor: pointer;
+    }
+
+    footer {
+      margin: 56px 0 0; padding: 28px 0 40px;
+      border-top: 1px solid var(--line);
+      color: var(--muted); font-size: 0.92rem; text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ 1. TREE PHOTO ============
+       Upload your photo to an "images" folder in the repo
+       and keep the file name below (or change it here). -->
+  <div class="hero">
+    <img class="hero-photo" src="images/tree.jpg" alt="The planted Bonsai" data-label="images/tree.jpg">
+  </div>
+
+  <main class="wrap">
+
+    <!-- ============ TREE NAME ============ -->
+    <div class="hero-text">
+      <p class="event">Tree Plantation Drive · Gandhi Jayanti 2026</p>
+      <h1>Bonsai</h1>
+      <p class="sci">盆栽 · the art of growing miniature trees</p>
+    </div>
+
+    <!-- ============ 2. TREE INFORMATION ============ -->
+    <section class="about">
+      <p>Bonsai is the ancient art of growing full-sized trees in small containers. Through careful pruning, wiring and root care, the tree is kept small while still looking like a mature tree in nature. The practice began in China as <em>penjing</em> and was refined over centuries in Japan.</p>
+
+      <dl class="facts">
+        <div><dt>Origin</dt><dd>China, refined in Japan</dd></div>
+        <div><dt>Type</dt><dd>Living art form</dd></div>
+        <div><dt>Grown in</dt><dd>Shallow tray or pot</dd></div>
+        <div><dt>Typical height</dt><dd>Under 1 m</dd></div>
+      </dl>
+
+      <a class="wiki" href="https://en.wikipedia.org/wiki/Bonsai" target="_blank" rel="noopener">
+        Read more on Wikipedia ↗
+      </a>
+    </section>
+
+    <!-- ============ 3. DEDICATION PLAQUE ============ -->
+    <section class="plaque">
+      <div class="leaf" aria-hidden="true">🌱</div>
+      <h2>Planted by the Sports Council 2025 Alumni<br>of Cautley Bhawan</h2>
+      <p>as a living tribute to the hostel that shaped us.</p>
+
+      <p class="guests">In the presence of<br>
+        <strong>Prof. [Name]</strong>, Dean of Students' Welfare<br>
+        <strong>Prof. [Name]</strong>, Warden, Cautley Bhawan
+      </p>
+
+      <p class="date">2 October 2026 · IIT Roorkee</p>
+    </section>
+
+    <!-- ============ 4. PHOTO GALLERY ============ -->
+    <h2 class="gallery-head">Moments from the day</h2>
+    <div class="gallery" id="gallery"></div>
+
+    <footer>
+      Cautley Alumni Association, IIT Roorkee<br>
+      Please help this tree grow: don't pluck its leaves or tie anything to it.
+    </footer>
+  </main>
+
+  <!-- Lightbox (opens when a gallery photo is tapped) -->
+  <dialog id="viewer">
+    <button class="close" aria-label="Close photo">×</button>
+    <img id="viewer-img" alt="">
+    <p id="viewer-cap"></p>
+  </dialog>
+
+  <script>
+    /* ============ GALLERY PHOTOS ============
+       To add a photo: upload it to the "images" folder,
+       then add one line below:  ["images/file-name.jpg", "Caption"], */
+    const photos = [
+      ["images/suraj.JPG", "The bonsai being planted"],
+      ["images/Picture3.png", "Dean and Warden with the alumni"],
+      ["images/3.jpg", "Sports Council 2025 group photo"],
+      ["images/4.jpg", "Watering the newly planted bonsai"],
+      ["images/5.jpg", "Cautley Bhawan, 2 October 2026"],
+      ["images/6.jpg", "With the hostel staff"],
+    ];
+
+    const gallery = document.getElementById("gallery");
+    const viewer = document.getElementById("viewer");
+    const viewerImg = document.getElementById("viewer-img");
+    const viewerCap = document.getElementById("viewer-cap");
+
+    photos.forEach(([src, caption]) => {
+      const btn = document.createElement("button");
+      btn.setAttribute("aria-label", "Open photo: " + caption);
+      const img = document.createElement("img");
+      img.src = src; img.alt = caption; img.loading = "lazy";
+      img.dataset.label = src;
+      btn.appendChild(img);
+      btn.addEventListener("click", () => {
+        if (btn.classList.contains("missing")) return;
+        viewerImg.src = src; viewerImg.alt = caption;
+        viewerCap.textContent = caption;
+        viewer.showModal();
+      });
+      gallery.appendChild(btn);
+    });
+
+    viewer.querySelector(".close").addEventListener("click", () => viewer.close());
+    viewer.addEventListener("click", e => { if (e.target === viewer) viewer.close(); });
+
+    /* If a photo isn't uploaded yet, show a placeholder with its file name */
+    document.querySelectorAll("img[data-label]").forEach(img => {
+      img.addEventListener("error", () => {
+        const box = document.createElement("div");
+        box.className = "missing " + (img.className || "");
+        box.textContent = "Add photo: " + img.dataset.label;
+        const parent = img.parentElement;
+        if (parent.tagName === "BUTTON") { parent.classList.add("missing"); parent.replaceChildren(box); box.style.height = "100%"; }
+        else { img.replaceWith(box); }
+      });
+    });
+  </script>
+</body>
+</html>
