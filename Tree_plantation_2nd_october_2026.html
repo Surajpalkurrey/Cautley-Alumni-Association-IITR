@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Change this: shows in the browser tab -->
+  <title>Welcome</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F3F6FA;
+      --ink: #1B2340;
+      --muted: #5A6480;
+      --accent: #0E7C7B;
+      --panel: #FFFFFF;
+      --line: #DCE3EE;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #12172A;
+        --ink: #EEF1F8;
+        --muted: #A3ABC2;
+        --accent: #3CC2BF;
+        --panel: #1B2238;
+        --line: #2B3452;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    main {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 48px 22px 64px;
+    }
+    header { margin-bottom: 36px; }
+    .badge {
+      display: inline-block;
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 26px;
+      display: grid; place-items: center;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: clamp(2rem, 7vw, 2.8rem);
+      line-height: 1.1;
+      font-weight: 800;
+      margin: 0 0 12px;
+      letter-spacing: -0.02em;
+    }
+    .intro { color: var(--muted); font-size: 1.1rem; margin: 0; }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 22px 22px;
+      margin-bottom: 16px;
+    }
+    h2 { font-size: 1.15rem; margin: 0 0 6px; }
+    section p { margin: 0; color: var(--muted); }
+    .button {
+      display: block;
+      text-align: center;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 15px;
+      border-radius: 12px;
+      margin-top: 28px;
+    }
+    .button:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+    footer { margin-top: 40px; font-size: 0.85rem; color: var(--muted); text-align: center; }
+  </style>
+</head>
+<body>
+  <main>
+
+    <!-- ===== EDIT FROM HERE ===== -->
+
+    <header>
+      <div class="badge" aria-hidden="true">👋</div>
+      <h1>Thanks for scanning</h1>
+      <p class="intro">This is a demo page. Everything here is placeholder text you can replace later.</p>
+    </header>
+
+    <section>
+      <h2>About</h2>
+      <p>Write a short line about who you are, your shop, your event, or whatever this QR code is for.</p>
+    </section>
+
+    <section>
+      <h2>What's here</h2>
+      <p>Add details like a menu, a schedule, product info, or instructions.</p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Email: you@example.com<br>Phone: +91 00000 00000</p>
+    </section>
+
+    <!-- Change the link and text of this button -->
+    <a class="button" href="mailto:you@example.com">Get in touch</a>
+
+    <footer>Last updated: October 2026</footer>
+
+    <!-- ===== EDIT UP TO HERE ===== -->
+
+  </main>
+</body>
+</html>
