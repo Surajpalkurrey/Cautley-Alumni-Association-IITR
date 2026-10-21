@@ -22,6 +22,7 @@
         --bark: #6b4e36;
         --line: #d7e0d3;
         --card: #ffffff;
+        --lightgreen: #4a9a5b;
       }
       @media (prefers-color-scheme: dark) {
         :root {
@@ -32,6 +33,7 @@
           --bark: #c9a27e;
           --line: #2c3830;
           --card: #1b231e;
+          --lightgreen: #9ad8a6;
         }
       }
       * {
@@ -191,7 +193,8 @@
       }
       .team figcaption span {
         display: block;
-        color: var(--muted);
+        color: var(--lightgreen);
+        font-style: italic;
         font-size: 0.9rem;
         line-height: 1.35;
         margin-top: 2px;
@@ -249,6 +252,11 @@
         .plaque .gold {
           color: #e6b84a;
         }
+      }
+      .plaque .desig {
+        color: var(--lightgreen);
+        font-style: italic;
+        font-weight: 400;
       }
       .plaque .guests {
         margin-top: 18px;
@@ -359,6 +367,39 @@
         font-size: 0.92rem;
         text-align: center;
       }
+      footer p {
+        margin: 0 0 8px;
+      }
+      footer .foot-title {
+        font-family: "Fraunces", Georgia, serif;
+        font-weight: 500;
+        font-size: 1.1rem;
+        color: var(--ink);
+      }
+      footer .foot-note {
+        font-style: italic;
+        color: var(--lightgreen);
+      }
+      .foot-by {
+        margin: 40px 0 0;
+        text-align: center;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+      .foot-by strong {
+        font-family: "Fraunces", Georgia, serif;
+        font-weight: 500;
+        font-size: 1.05rem;
+        color: var(--ink);
+      }
+      .foot-by span {
+        font-style: italic;
+        color: var(--lightgreen);
+      }
+      footer .foot-credit {
+        font-size: 0.8rem;
+        margin-top: 16px;
+      }
     </style>
   </head>
   <body>
@@ -444,16 +485,22 @@
           alt="World Ozone Day"
         />
         <h2>
-          <span class="gold">Donated By:</span><br />Sports Council 2024-25 Alumni<br />of Cautley Bhawan
+          <span class="gold">Donated By:</span><br />Sports Council 2024-25
+          Alumni<br />of Cautley Bhawan
         </h2>
 
         <p class="guests">
           <span class="gold">Planted By:</span><br />
-          <strong>Prof. Inderdeep Singh</strong>, Dean Infrastructure<br />
-          <strong>Prof. Tarun Sharma</strong>, Former Chief Warden
-          (2023&ndash;25), Cautley Bhawan<br />
-          <strong>Prof. Ashutosh Sharma</strong>, Chief Warden (Incumbent)<br />
-          <strong>Prof. Rhythm Singh</strong>, Wellness Warden (Incumbent)
+          <strong>Prof. Inderdeep Singh</strong><br />
+          <span class="desig">Dean Infrastructure</span><br />
+          <strong>Prof. Tarun Sharma</strong><br />
+          <span class="desig"
+            >Former Chief Warden (2023&ndash;25), Cautley Bhawan</span
+          ><br />
+          <strong>Prof. Ashutosh Sharma</strong><br />
+          <span class="desig">Chief Warden (Incumbent)</span><br />
+          <strong>Prof. Rhythm Singh</strong><br />
+          <span class="desig">Wellness Warden (Incumbent)</span>
         </p>
 
         <p class="date">2 October 2026 · IIT Roorkee</p>
@@ -461,7 +508,7 @@
 
       <!-- ============ 3b. SPORTS COUNCIL TEAM ============ -->
       <section class="team">
-        <h2>The Sports Council Team</h2>
+        <h2>Meet Our Team</h2>
         <div class="team-grid">
           <figure>
             <img src="images/Abhishek.jpg" alt="Abhishek Patel" />
@@ -478,14 +525,20 @@
             </figcaption>
           </figure>
           <figure>
-            <img src="images/Pranay.jpg" alt="Pranay Majumder" />
+            <img src="images/pranay%20sports.jpg" alt="Pranay Majumder" />
             <figcaption>
               <strong>Pranay Majumder</strong>
-              <span>The then Addl. Sports Secretary (Indoor Games)</span>
+              <span
+                >The then Addl. Sports Secretary (Indoor Games &amp; Gym)</span
+              >
             </figcaption>
           </figure>
           <figure>
-            <img src="images/Hariom.jpg" alt="Hariom Sahu" />
+            <img
+              src="images/Hariom.jpg"
+              alt="Hariom Sahu"
+              style="object-position: 50% 38%"
+            />
             <figcaption>
               <strong>Hariom Sahu</strong>
               <span>Member, Sports Council</span>
@@ -498,17 +551,29 @@
       <h2 class="gallery-head">Moments from the day</h2>
       <div class="gallery" id="gallery"></div>
 
+      <p class="foot-by">
+        Conceptualised &amp; Organised By:<br />
+        <strong>Suraj Pal Kurrey</strong><br />
+        <span>Sports Secretary, Cautley Bhawan (2024–25)</span>
+      </p>
+
+      <!-- ============ 5. CREDIT ============ -->
+
       <footer>
-        Cautley Alumni Association, IIT Roorkee<br />
-        Header photo: <em>Ficus virens</em> by Yercaud-elango,
-        <a
-          href="https://commons.wikimedia.org/wiki/File:Ficus_virens-2-JNTBGRI-kerala-India.jpg"
-          target="_blank"
-          rel="noopener"
-          >Wikimedia Commons</a
-        >, CC BY-SA 4.0<br />
-        Please help this tree grow: don't pluck its leaves or tie anything to
-        it.
+        <p class="foot-title">Cautley Alumni Association, IIT Roorkee</p>
+        <p class="foot-care">
+          🌱 Please help this tree grow: kindly do not pluck its leaves or tie
+          anything to it.
+        </p>
+        <p class="foot-credit">
+          Header photo: <em>Ficus virens</em> by Yercaud-elango,
+          <a
+            href="https://commons.wikimedia.org/wiki/File:Ficus_virens-2-JNTBGRI-kerala-India.jpg"
+            target="_blank"
+            rel="noopener"
+            >Wikimedia Commons</a
+          >, CC BY-SA 4.0
+        </p>
       </footer>
     </main>
 
@@ -525,8 +590,12 @@
        then add one line below:  ["images/file-name.jpg", "Caption"], */
       const photos = [
         ["images/suraj.JPG", "Sports Secretary 2024-25"],
-        ["images/3.jpg", "Sports Council 2025 group photo"],
+        ["images/group.jpg", "Sports Council 2025 group photo"],
         ["images/Tribute.jpg", "Tribute to Dean Infra & other Invited Guests"],
+        [
+          "images/gandhi.jpg",
+          "Remembrance and Tribute to the Father of the Nation",
+        ],
       ];
 
       const gallery = document.getElementById("gallery");
