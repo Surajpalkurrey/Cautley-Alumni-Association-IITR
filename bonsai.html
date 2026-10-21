@@ -176,6 +176,21 @@
       .team figure {
         margin: 0;
       }
+      .team img[data-full] {
+        cursor: zoom-in;
+      }
+      .team img[data-full]:focus-visible {
+        outline: 3px solid var(--leaf);
+        outline-offset: 3px;
+      }
+      #viewer-cap strong {
+        display: block;
+        font-family: "Fraunces", Georgia, serif;
+        font-size: 1.15rem;
+      }
+      #viewer-cap em {
+        color: var(--lightgreen);
+      }
       .team img {
         width: 120px;
         height: 120px;
@@ -511,21 +526,33 @@
         <h2>Meet Our Team</h2>
         <div class="team-grid">
           <figure>
-            <img src="images/Abhishek.jpg" alt="Abhishek Patel" />
+            <img
+              src="images/Abhishek.jpg"
+              data-full="images/Abhishek_full.jpg"
+              alt="Abhishek Patel"
+            />
             <figcaption>
               <strong>Abhishek Patel</strong>
               <span>The then Addl. Sports Secretary (Convenor)</span>
             </figcaption>
           </figure>
           <figure>
-            <img src="images/Zameer.jpg" alt="Zamer Khan" />
+            <img
+              src="images/Zameer.jpg"
+              data-full="images/Zameer.jpg"
+              alt="Zamer Khan"
+            />
             <figcaption>
               <strong>Zamer Khan</strong>
               <span>The then Addl. Sports Secretary (Outdoor Games)</span>
             </figcaption>
           </figure>
           <figure>
-            <img src="images/pranay%20sports.jpg" alt="Pranay Majumder" />
+            <img
+              src="images/pranay%20sports.jpg"
+              data-full="images/pranay%20sports.jpg"
+              alt="Pranay Majumder"
+            />
             <figcaption>
               <strong>Pranay Majumder</strong>
               <span
@@ -536,6 +563,7 @@
           <figure>
             <img
               src="images/Hariom.jpg"
+              data-full="images/Hariom_sports.jpg"
               alt="Hariom Sahu"
               style="object-position: 50% 38%"
             />
@@ -589,7 +617,6 @@
        To add a photo: upload it to the "images" folder,
        then add one line below:  ["images/file-name.jpg", "Caption"], */
       const photos = [
-        ["images/suraj.JPG", "Sports Secretary 2024-25"],
         ["images/group.jpg", "Sports Council 2025 group photo"],
         ["images/Tribute.jpg", "Tribute to Dean Infra & other Invited Guests"],
         [
@@ -620,6 +647,30 @@
           viewer.showModal();
         });
         gallery.appendChild(btn);
+      });
+
+      /* Team photos: open full-size in the same lightbox, name + designation below */
+      document.querySelectorAll(".team img[data-full]").forEach((img) => {
+        const open = () => {
+          const cap = img.closest("figure").querySelector("figcaption");
+          const name = document.createElement("strong");
+          name.textContent = cap.querySelector("strong").textContent;
+          const role = document.createElement("em");
+          role.textContent = cap.querySelector("span").textContent;
+          viewerImg.src = img.dataset.full;
+          viewerImg.alt = img.alt;
+          viewerCap.replaceChildren(name, role);
+          viewer.showModal();
+        };
+        img.tabIndex = 0;
+        img.setAttribute("role", "button");
+        img.addEventListener("click", open);
+        img.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            open();
+          }
+        });
       });
 
       viewer
